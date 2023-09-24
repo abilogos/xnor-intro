@@ -1,3 +1,26 @@
+:root{
+--iron: #A59C94;
+--cooper : #DA8A67;
+}
+
 body {
-    background-color:wheat;
+    background: linear-gradient(var(--cooper),yellow);
+}
+.quick-links {
+    /*position: sticky;*/
+    top: 16px;
+    background:linear-gradient(to right,#0004,var(--iron),#fff0);
+    z-index: 2;
+    margin-left: 16px;
+    border-top-left-radius: 5%;
+    border-bottom-left-radius: 5%;
+    box-shadow: -8px -8px 4px 2px black;
+}
+.card {
+    margin-top: 16px;
+    text-shadow: 1px 1px 1px white;
+}
+.card-header{
+    background: linear-gradient(to right,#0000,var(--cooper),#0000);
+    border: 0px;
 }
