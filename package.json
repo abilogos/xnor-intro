@@ -1,0 +1,13 @@
+{
+  "name": "intro",
+  "version": "1.0.0",
+  "description": "the intoruction page",
+  "main": "index.js",
+  "author": "Abilogos <dev.abi.log@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2"
+  }
+}
