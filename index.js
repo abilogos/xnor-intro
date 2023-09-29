@@ -17,9 +17,12 @@ if (process.env.NODE_ENV == 'production') {
     app.use(compression());
     app.enable('view cache');
 }
+//routes
 app.get('/', (req, res) => {
-    // Integrates the body of "intro.hbs" inside the defaultLayout "main.hbs"
     res.render('home');
+});
+app.get('/developers', (req, res) => {
+    res.render('developers');
 });
 
 //for serving
