@@ -24,3 +24,16 @@ body {
     background: linear-gradient(to right,#0000,var(--cooper),#0000);
     border: 0px;
 }
+.third-logo{
+    width: 1em;
+    height: 1em;;
+}
+.dev-pics{
+    height: 128px;
+    width: 128px;
+    border-radius: 8%;
+    object-fit: cover;
+}
+.dev-card-body {
+    text-align: center;
+}
