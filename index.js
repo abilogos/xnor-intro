@@ -1,14 +1,14 @@
 const compression = require('compression')
 const express = require('express');
-const hbs = require('express-handlebars');
+const hbs = require('express-hbs');
 
 const app = express();
 //handlebars
 app.set('view engine', 'hbs');
-app.engine('hbs', hbs.engine({
+app.engine('hbs', hbs.express4({
     layoutsDir: __dirname + '/views/layouts',
     extname: 'hbs',
-    defaultLayout: 'main'
+    defaultLayout: __dirname +'/views/layouts'+'/main.hbs'
 }));
 app.use(express.static('public'));
 app.set('views', __dirname + '/views/pages');
