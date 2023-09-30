@@ -56,7 +56,7 @@ body {
   text-overflow: ellipsis;
   display: inline-block;
   width: 100%;
-  background-color: mistyrose;
-  border-radius: 4%;
+  background: floralwhite;
+  border-radius: 5%;
   padding:16px;
 }
