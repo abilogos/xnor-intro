@@ -28,7 +28,6 @@ app.engine('hbs', hbs.engine({
         section: function(name, options) { 
             if (!this._sections) this._sections = {};
               this._sections[name] = options.fn(this); 
-              console.log(this._sections);
               return null;
         },
         yield: function (name, default_value) {

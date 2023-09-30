@@ -5,6 +5,7 @@
 
 body {
     background: linear-gradient(var(--cooper),yellow);
+    min-height: 100vh;
 }
 .quick-links {
     /*position: sticky;*/
@@ -12,7 +13,7 @@ body {
     background:linear-gradient(to right,#0004,var(--iron),#fff0);
     z-index: 2;
     margin-left: 16px;
-    border-top-left-radius: 5%;
+    border-top-left-radius: 2%;
     border-bottom-left-radius: 5%;
     box-shadow: -8px -8px 4px 2px black;
 }
@@ -36,4 +37,11 @@ body {
 }
 .dev-card-body {
     text-align: center;
+    min-height: 300px;
+}
+#navbarSupportedContent{
+    padding-left:8px;
+}
+.navbar-toggler:focus{
+    box-shadow: 0 0 0 0;
 }
