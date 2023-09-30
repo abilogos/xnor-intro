@@ -1,16 +1,26 @@
 const compression = require('compression')
 const express = require('express');
 const hbs = require('express-handlebars');
-var fp = require('path');
+const fp = require('path');
+const fs = require('fs').promises;
 
 function relative(path) {
     return fp.join(__dirname, path);
 }
 
+async function readFile(path) {
+    try {
+        const data = await fs.readFile(path);
+        return data.toString();
+      } catch (error) {
+        console.error(`Got an error trying to read the file: ${error.message}`);
+      }
+}
+
 const app = express();
 //handlebars
 app.engine('hbs', hbs.engine({
-    partialsDir: relative('views/partials'),//__dirname + '/views/partials',
+    partialsDir: relative('views/partials'),
     layoutsDir:    relative('/views/layouts'),
     defaultLayout: relative('/views/layouts'+'/main.hbs'),
     extname: 'hbs',
@@ -43,7 +53,23 @@ app.get('/developers', (req, res) => {
     res.render('developers');
 });
 app.get('/etymology', (req, res) => {
-    res.render('etymology');
+    const wordPromise = readFile(relative('html/partials/etymology-word.html'));
+    const summaryPromise = readFile(relative('html/partials/etymology-summary.html'));
+    const sloganPromise = readFile(relative('html/partials/etymology-slogan.html'));
+
+
+
+    Promise.all([wordPromise ,summaryPromise,sloganPromise])
+    .then( pages => {
+        res.render('etymology',{
+            word : pages[0],
+            summary : pages[1],
+            slogan: pages[2]
+        });
+        // for(page of pages){
+        //     res.render('etymology', {'word': page});
+        // }
+    });
 });
 
 //for serving
