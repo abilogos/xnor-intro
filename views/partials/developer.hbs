@@ -1,0 +1,40 @@
+    <div class="col-6 col-sm-5 col-md-5 col-lg-4  col-xl-3">
+        <div class="card">
+            <div class="card-body dev-card-body">
+                {{#if img-src}}
+                    <img src="{{img-src}}" class="dev-pics"/>
+                    <br/>
+                {{/if}}
+                {{#if name}}
+                    {{#if isMale}}&#X1F9D1;{{else}}&#X1F469;{{/if}}
+                    {{name}}
+                    <br/>
+                {{/if}}
+                {{#if email}}
+                    &#X1F4E7; {{email}}
+                <br/>
+                {{/if}}
+                {{#if github-url}}
+                    <a href="{{github-url}}">
+                        <img src="./thirdparty/github-mark.png" class="third-logo"/>
+                        {{github-name}}
+                    </a>
+                    <br/>
+                {{/if}}
+                {{#if stackoverflow-url}}
+                    <a href="{{stackoverflow-url}}">
+                    <img src="./thirdparty/stack-overflow.png" class="third-logo"/>
+                    {{stackoverflow-name}}
+                    </a>
+                    <br>
+                {{/if}}
+                {{#if linkedin-url}}
+                    <a href="{{linkedin-url}}">
+                    <img src="./thirdparty/linked-in.png" class="third-logo"/>
+                    {{linkedin-name}}
+                    </a>
+                    <br>
+                {{/if}}
+            </div>
+        </div>
+    </div>
