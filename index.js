@@ -24,6 +24,9 @@ app.get('/', (req, res) => {
 app.get('/developers', (req, res) => {
     res.render('developers');
 });
+app.get('/etymology', (req, res) => {
+    res.render('etymology');
+});
 
 //for serving
 const port = 8009;
