@@ -56,15 +56,21 @@ app.get('/etymology', (req, res) => {
     const wordPromise = readFile(relative('html/partials/etymology-word.html'));
     const summaryPromise = readFile(relative('html/partials/etymology-summary.html'));
     const sloganPromise = readFile(relative('html/partials/etymology-slogan.html'));
-
-
-
     Promise.all([wordPromise ,summaryPromise,sloganPromise])
     .then( pages => {
         res.render('etymology',{
             word : pages[0],
             summary : pages[1],
             slogan: pages[2]
+        });
+    });
+});
+app.get('/projects', (req, res) => {
+    const wishPromise = readFile(relative('html/partials/projects-wish.html'));
+    Promise.all([wishPromise])
+    .then( pages => {
+        res.render('projects',{
+            wish : pages[0],
         });
     });
 });

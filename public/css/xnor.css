@@ -45,3 +45,18 @@ body {
 .navbar-toggler:focus{
     box-shadow: 0 0 0 0;
 }
+.projects-logo{
+    width: 40%;
+    margin-left:30%;
+    margin-right: 30%;
+}
+.projects-description{
+    max-height: 128px;
+  overflow: scroll;
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 100%;
+  background-color: mistyrose;
+  border-radius: 4%;
+  padding:16px;
+}
