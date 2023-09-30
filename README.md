@@ -111,3 +111,8 @@ in the `./.git/hooks/post-merge` we can write this to invoke our deployment scri
 ../deploy.sh
 exit 0;
 ```
+then make it executable:
+```
+chmod +x ./.git/hooks/post-merge
+chmod +x ./deploy.sh
+```
