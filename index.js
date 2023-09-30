@@ -33,6 +33,7 @@ app.engine('hbs', hbs.engine({
         },
         yield: function (name, default_value) {
             if(typeof default_value == "object") default_value = "";
+            if (!this._sections) this._sections = {};
             return this._sections[name] || default_value;
         }
     }
@@ -66,9 +67,6 @@ app.get('/etymology', (req, res) => {
             summary : pages[1],
             slogan: pages[2]
         });
-        // for(page of pages){
-        //     res.render('etymology', {'word': page});
-        // }
     });
 });
 
