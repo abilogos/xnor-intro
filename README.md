@@ -100,3 +100,14 @@ server {
 }
 
 ```
+
+## Setup a CD tool
+
+### Example a git-hook as simple as it is
+
+in the `./.git/hooks/post-merge` we can write this to invoke our deployment script after every pull or we can add it to the `./.git/hooks/post-receive` if we want to push the changes to the production deploy
+```
+#!/bin/bash
+../deploy.sh
+exit 0;
+```
