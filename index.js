@@ -1,15 +1,33 @@
 const compression = require('compression')
 const express = require('express');
-const hbs = require('express-hbs');
+const hbs = require('express-handlebars');
+var fp = require('path');
+
+function relative(path) {
+    return fp.join(__dirname, path);
+}
 
 const app = express();
 //handlebars
-app.set('view engine', 'hbs');
-app.engine('hbs', hbs.express4({
-    layoutsDir: __dirname + '/views/layouts',
+app.engine('hbs', hbs.engine({
+    partialsDir: relative('views/partials'),//__dirname + '/views/partials',
+    layoutsDir:    relative('/views/layouts'),
+    defaultLayout: relative('/views/layouts'+'/main.hbs'),
     extname: 'hbs',
-    defaultLayout: __dirname +'/views/layouts'+'/main.hbs'
+    helpers: {
+        section: function(name, options) { 
+            if (!this._sections) this._sections = {};
+              this._sections[name] = options.fn(this); 
+              console.log(this._sections);
+              return null;
+        },
+        yield: function (name, default_value) {
+            if(typeof default_value == "object") default_value = "";
+            return this._sections[name] || default_value;
+        }
+    }
 }));
+app.set('view engine', 'hbs');
 app.use(express.static('public'));
 app.set('views', __dirname + '/views/pages');
 
